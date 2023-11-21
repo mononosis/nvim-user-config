@@ -117,5 +117,5 @@
       local current_dir = os.getenv("PROJECT_NVIM_CONFIG")
       if current_dir then
           package.path = package.path .. ';' .. current_dir .. '/?.lua'
-          dofile(current_dir .. 'init.lua')
+          dofile(current_dir .. '/init.lua')
       end
