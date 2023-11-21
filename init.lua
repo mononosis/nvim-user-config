@@ -6,10 +6,6 @@
       --if project_nvim_config then
       --    dofile(project_nvim_config)
       --end
-      local current_dir = os.getenv("PROJECT_NVIM_CONFIG")
-      if current_dir then
-          package.path = package.path .. ';' .. current_dir .. '/?.lua'
-      end
 
       -- disable netrw at the very start of your init.lua
       vim.g.loaded_netrw = 1
@@ -117,3 +113,9 @@
         },
       })
       vim.cmd('NvimTreeOpen')
+
+      local current_dir = os.getenv("PROJECT_NVIM_CONFIG")
+      if current_dir then
+          package.path = package.path .. ';' .. current_dir .. '/?.lua'
+          add_paths_to_rtp(current_dir)
+      end
