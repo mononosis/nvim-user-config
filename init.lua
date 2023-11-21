@@ -188,3 +188,4 @@ cmp.setup.cmdline(':', {
 --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
 --	capabilities = capabilities
 --}
+require('lualine').setup()
