@@ -192,3 +192,30 @@ if not vim.fn.has('gui_running') then
   vim.o.t_Co = "256"
 end
 
+vim.g['lightline'] = {
+  colorscheme = 'cyberpunk',
+  active = {
+    left = {{'mode', 'paste'}, {'gitbranch','readonly', 'filename', 'modified'}},
+    right = {{'lineinfo',},{'percent'},{'syntastic'},{'fileformat'}},
+  },
+  inactive = {
+    left = {{'filename'},{},{'gitbranch'}},
+    right = {{'lineinfo',},{'percent'},{'syntastic'},{'fileformat'}},
+  },
+  component_function = {
+    gitbranch = 'GitBranch'
+  },
+  tabline = {
+    left = {{'buffers'}},
+    right = {{'close'}}
+  },
+  component_expand = {
+    buffers = 'lightline#bufferline#buffers'
+  },
+  component_type = {
+    buffers = 'tabsel'
+  },
+  separator = { left =  '', right = '' },
+  subseparator = { left = '', right = '' }
+}
+
