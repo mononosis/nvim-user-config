@@ -1,3 +1,4 @@
+vim.cmd('color quiet')
 -- Disable backup
 vim.opt.backup = false
 
@@ -14,9 +15,9 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-vim.opt.history = 1000              -- Enable line numbers
-vim.opt.number = true               -- Enable line numbers
-vim.opt.relativenumber = true       -- Enable relative line numbers
+vim.opt.history = 1000        -- Enable line numbers
+vim.opt.number = true         -- Enable line numbers
+vim.opt.relativenumber = true -- Enable relative line numbers
 
 
 -- Map leader
@@ -106,20 +107,15 @@ require("noice").setup({
 	},
 	-- you can enable a preset for easier configuration
 	presets = {
-		bottom_search = true,   -- use a classic bottom cmdline for search
+		bottom_search = true, -- use a classic bottom cmdline for search
 		command_palette = true, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
-		inc_rename = false,     -- enables an input dialog for inc-rename.nvim
+		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
 })
 vim.cmd('NvimTreeOpen')
 
-local current_dir = os.getenv("PROJECT_NVIM_CONFIG")
-if current_dir then
-	package.path = package.path .. ';' .. current_dir .. '/?.lua'
-	dofile(current_dir .. '/init.lua')
-end
 
 -- Set up nvim-cmp.
 local cmp = require 'cmp'
@@ -189,3 +185,33 @@ cmp.setup.cmdline(':', {
 --	capabilities = capabilities
 --}
 require('lualine').setup()
+
+
+
+--vim.api.nvim_create_autocmd("FileType", {
+--pattern = "lua",
+--callback = function()
+--vim.opt_local.tabstop = 2
+--vim.opt_local.shiftwidth = 2
+--vim.opt_local.expandtab = true
+--end,
+--})
+
+vim.opt_local.tabstop = 2
+vim.opt_local.shiftwidth = 2
+vim.opt_local.expandtab = true
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    --disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+  -- Add additional configuration for Treesitter features if needed
+}
+
+
+local current_dir = os.getenv("PROJECT_NVIM_CONFIG")
+if current_dir then
+	package.path = package.path .. ';' .. current_dir .. '/?.lua'
+	dofile(current_dir .. '/init.lua')
+end
