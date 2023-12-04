@@ -209,6 +209,7 @@ require'nvim-treesitter.configs'.setup {
   -- Add additional configuration for Treesitter features if needed
 }
 
+require('nvim-highlight-colors').setup {}
 
 local current_dir = os.getenv("PROJECT_NVIM_CONFIG")
 if current_dir then
