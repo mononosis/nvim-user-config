@@ -248,4 +248,4 @@ if nvim_project_config_path then
   require(GetLastSubpath(nvim_project_config_path))
 end
 
-require('options')
+--require('options')
