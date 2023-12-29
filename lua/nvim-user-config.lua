@@ -21,6 +21,5 @@ if plugin_paths then
 end
 if nvim_project_config_path then
   utils.set_packages_paths(nvim_project_config_path)
-  print("hello ".. nvim_project_config_path)
   require(utils.GetLastSubpath(nvim_project_config_path))
 end
