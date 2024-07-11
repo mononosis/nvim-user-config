@@ -22,3 +22,13 @@ vim.api.nvim_set_keymap('n', '<Leader>q', ':wq<CR>', { noremap = true, silent = 
 
 vim.api.nvim_set_keymap('n', '<Space>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
+local function set_sh_keymap()
+  vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>!bash %<CR>', { noremap = true, silent = true })
+end
+
+vim.cmd [[ 
+  augroup sh_keymap
+    autocmd!
+    autocmd BufRead, BufNewFile *.sh lua set_sh_keymap()
+  augroup END
+]]
