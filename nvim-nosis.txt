@@ -1,0 +1,9 @@
+:checkhealth
+
+copy the whole line -> yy
+store copy text into a register -> "xy where x can be any char such as a or b 
+paste from a register -> "xp where x can be any char such as a or b
+
+saving or marking a line to come back to it later within the file -> mx where x can be any char 
+going back into the line -> 'x
+same thing as the 2 lines above but upper case X or char will be set for global or for n number of files
