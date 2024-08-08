@@ -1,6 +1,7 @@
 local M = {}
 
 function M.setup()
+
   local bufferline = require('bufferline')
 
   bufferline.setup({
@@ -51,7 +52,7 @@ function M.setup()
           text = "File Explorer",
           text_align = "center",
           separator = "║",
-          highlight = "Directory"
+          highlight = "Normal"
         }
       },
       custom_areas = {
@@ -84,5 +85,4 @@ function M.setup()
     }
   })
 end
-
 return M
