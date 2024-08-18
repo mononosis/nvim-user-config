@@ -2,7 +2,7 @@
 -- or the user lab path for development 
 my_init.source_me()
 -- import all modules from this project
-require("misc").setup()
 -- in here we extend the editor with more plugins based on the lab path such lualab or javalab. 
+require("misc").setup()
 -- When changing to directories within the lab folder the editor will load the plugins lazyly 
 my_init.extend_environment_from_lab()

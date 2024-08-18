@@ -39,18 +39,6 @@ function M.setup()
       enable = true,
       show_on_dirs = true,
     },
-    --icons = {
-    --web_devicons = {
-    --file = {
-    --enable = true,
-    --color = true,
-    --},
-    --folder = {
-    --enable = false,
-    --color = true,
-    --},
-    --},
-    --},
     git = {
       enable = true, -- Adjust or disable Git integration
       ignore = false -- Set to false to stop ignoring Git ignored files
@@ -76,9 +64,9 @@ function M.setup()
           folder = {
             arrow_open = "",
             arrow_closed = "",
-            default = "", -- Default folder icon
-            open = "",   -- Icon for open folder
-            empty = "",  -- Icon for empty folder
+            default = "",  -- Default folder icon
+            open = "",     -- Icon for open folder
+            empty = "",    -- Icon for empty folder
             empty_open = "", -- Icon for empty open folder
             symlink = "",
             symlink_open = "",
@@ -96,4 +84,3 @@ function M.setup()
 end
 
 return M
-

@@ -24,18 +24,32 @@ function M.setup()
 
   vim.api.nvim_set_keymap('n', '<Space>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
-  local function set_sh_keymap()
-    vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>!bash %<CR>', { noremap = true, silent = true })
-  end
+  --local function set_sh_keymap()
+  --vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>!bash %<CR>', { noremap = true, silent = true })
+  --end
 
   -- Create an autocmd group to avoid duplication
   vim.api.nvim_create_augroup('sh_keymap', { clear = true })
 
   -- Set the autocmd to call the Lua function
-  vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-    pattern = '*.sh',
-    callback = set_sh_keymap
-  })
+  --vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  --pattern = '*.sh',
+  --callback = set_sh_keymap
+  --})
+  vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>lua vim.lsp.buf.format()<CR>',
+    { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>',
+    { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+    { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>',
+    { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('n', '<leader>db', '<cmd>bdelete<CR>',
+    { noremap = true, silent = true })
 end
 
 return M

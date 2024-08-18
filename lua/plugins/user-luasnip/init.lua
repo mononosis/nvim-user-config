@@ -30,27 +30,6 @@ function M.setup()
     })
   })
 
-  ls.add_snippets("lua", {
-    s("table-class", {
-      t({
-        "local M = {}",
-        ""
-      }),
-      t({
-        "function M.",
-      }),
-      i(1, "whatever"),
-      t({
-        "()",
-        "end",
-        ""
-      }),
-      t({
-        "return M"
-      }),
-    })
-  })
 end
-
 return M
 
