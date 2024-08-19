@@ -1,6 +1,6 @@
 -- here we source this file by adding the path of this project such as the nix store path 
 -- or the user lab path for development 
---my_init.source_me()
+my_init.source_me()
 -- import all modules from this project
 -- in here we extend the editor with more plugins based on the lab path such lualab or javalab. 
 require("misc").setup()
