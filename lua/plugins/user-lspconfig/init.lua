@@ -26,6 +26,7 @@ function M.setup()
       -- Custom on_attach logic
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fl', '<cmd>lua vim.lsp.buf.format()<CR>',
         { noremap = true, silent = true })
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>t', '<cmd>!nix eval -f  %<CR>', { noremap = true, silent = true })
     end
     ,
     capabilities = caps,
