@@ -56,6 +56,19 @@ function M.setup()
   -- a set of vim.opts
   user_options.setup()
   user_auto_session.setup()
+
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.mustache",
+    group = vim.api.nvim_create_augroup("MustacheFiletype", { clear = true }),
+
+    callback = function()
+      print("Autocommand triggered for .mustache file")
+
+      vim.defer_fn(function()
+        vim.cmd("set filetype=mustache")
+      end, 100) -- Delay by 100ms (adjust if necessary)
+    end,
+  })
 end
 
 function M.info(message)
