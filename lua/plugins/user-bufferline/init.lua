@@ -51,7 +51,8 @@ function M.setup()
           filetype = "NvimTree",
           text = "File Explorer",
           text_align = "center",
-          separator = "║",
+          --separator = "║",
+          separator = "┃",
           highlight = "Normal"
         }
       },

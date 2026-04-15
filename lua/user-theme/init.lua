@@ -13,7 +13,7 @@ function M.setup()
   else
   end
 
-  vim.cmd([[ colorscheme gotham ]])
+  vim.cmd([[ colorscheme purify ]])
 
   --vim.cmd(string.format('hi WinSeparator guifg=#%06x guibg=none', normal_fg))
   -- Get this ascii chars from Box-drawing characters
@@ -22,9 +22,12 @@ function M.setup()
     horiz     = '━',
     horizup   = '┻',
     horizdown = '┳',
-    vert      = '║',
-    vertleft  = '║',
-    vertright = '║',
+    --vert      = '║',
+    --vertleft  = '║',
+    --vertright = '║',
+    vert      = '┃',
+    vertleft  = '┃',
+    vertright = '┃',
     verthoriz = '╋',
   }
   -- For dark themes use a bright color to distinguish the root folder from the others

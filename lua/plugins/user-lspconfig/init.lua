@@ -1,8 +1,5 @@
 local M = {}
 function M.setup()
-  local lspconfig = require('lspconfig')
-
-
   local caps = vim.tbl_deep_extend(
     'force',
     vim.lsp.protocol.make_client_capabilities(),
@@ -13,22 +10,20 @@ function M.setup()
   );
 
   --Enable (broadcasting) snippet capability for completion
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  local snippet_caps = vim.lsp.protocol.make_client_capabilities()
+  snippet_caps.textDocument.completion.completionItem.snippetSupport = true
 
-  require 'lspconfig'.jsonls.setup {
-    capabilities = capabilities,
-  }
+  vim.lsp.config('jsonls', {
+    capabilities = snippet_caps,
+  })
 
-  lspconfig.nil_ls.setup {
+  vim.lsp.config('nil_ls', {
     autostart = true,
     on_attach = function(_, bufnr)
-      -- Custom on_attach logic
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fl', '<cmd>lua vim.lsp.buf.format()<CR>',
         { noremap = true, silent = true })
       vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>t', '<cmd>!nix eval -f  %<CR>', { noremap = true, silent = true })
-    end
-    ,
+    end,
     capabilities = caps,
     cmd = { 'nil' },
     settings = {
@@ -39,7 +34,9 @@ function M.setup()
         },
       },
     },
-  }
+  })
+
+  vim.lsp.enable({ 'jsonls', 'nil_ls' })
 end
 
 return M

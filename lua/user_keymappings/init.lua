@@ -45,11 +45,19 @@ function M.setup()
   vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>',
     { noremap = true, silent = true })
 
+  vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>',
+    { noremap = true, silent = true })
+
   vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>',
+    { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>',
     { noremap = true, silent = true })
 
   vim.api.nvim_set_keymap('n', '<leader>db', '<cmd>bdelete<CR>',
     { noremap = true, silent = true })
+
+
 end
 
 return M

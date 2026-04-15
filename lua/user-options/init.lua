@@ -19,6 +19,10 @@ function M.setup()
   vim.opt.shiftwidth = 2
   vim.opt.expandtab = true
   --allows_duplicates = true,
+  --
+  vim.opt.foldmethod = 'indent'   -- Fold based on indentation
+  vim.opt.foldlevel = 99          -- Start with all folds open
+  vim.opt.foldenable = true       -- Enable folding by default
 end
 
 return M

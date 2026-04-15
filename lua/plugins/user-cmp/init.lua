@@ -27,6 +27,7 @@ function M.setup()
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'path' },
+      { name = 'cmp-dbee' },
       { name = 'luasnip' }, -- For luasnip users.
     }, {
       { name = 'buffer' },
